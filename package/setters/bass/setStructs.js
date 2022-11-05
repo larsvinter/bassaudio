@@ -3,6 +3,7 @@
  */
 
 const ref = require("ref-napi");
+const struct = require("ref-struct-di");
 const Struct = require("ref-struct-di")(ref);
 
 class refBuilder {
@@ -116,6 +117,12 @@ function setStructs(bass) {
     genre: "byte",
   });
   structs.TAG_ID3.libid = "bass";
+
+  structs.BASS_MIXER_NODE = Struct({
+    pos: "int64",
+    val: "float",
+  });
+  structs.BASS_MIXER_NODE.libid = "bassmix";
 
   for (let prop in structs)
     bass[prop] = new refBuilder(prop, structs[prop], structs[prop].libid);

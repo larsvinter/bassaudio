@@ -35,7 +35,6 @@ fs.readdirSync(path.join(__dirname, "setters/bass")).forEach(function (file) {
   );
 });
 
-console.log(setters);
 var structs = {};
 setters["setStructs.js"](structs);
 

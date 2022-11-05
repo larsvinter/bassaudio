@@ -27,13 +27,15 @@ function getFfiFunDeclarations(bass) {
     BASS_Mixer_ChannelSetSync: [
       "int",
       ["int", "int", "int64", "pointer", "pointer"],
-      ["int", "int", "int64", bass.SyncProc.id, "void*"],
     ],
     BASS_Mixer_ChannelRemoveSync: ["bool", ["int", "int"]],
     BASS_Mixer_ChannelSetMatrix: ["bool", ["int", "pointer"]],
     BASS_Mixer_ChannelSetMatrixEx: ["bool", ["int", "pointer", "float"]],
     BASS_Mixer_ChannelGetMatrix: ["bool", ["int", "pointer"]],
-    BASS_Mixer_ChannelSetEnvelope: ["bool", ["int", "int", "pointer", "int"]],
+    BASS_Mixer_ChannelSetEnvelope: [
+      "bool",
+      ["int", "int", "const BASS_MIXER_NODE *", "int"],
+    ],
     BASS_Mixer_ChannelSetEnvelopePos: ["bool", ["int", "int", "int64"]],
     BASS_Mixer_ChannelGetEnvelopePos: ["int64", ["int", "int", "pointer"]],
     BASS_Split_StreamCreate: ["int", ["int", "int", "int"]],
