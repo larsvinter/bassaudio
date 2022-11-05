@@ -2,7 +2,7 @@
  * Created by scarboni on 21.12.2020
  */
 
-const enableLibInt = require("../enableLibInt");
+const enableLibInt = require("../../enableLibInt");
 
 function getFunName(baseName) {
   baseName = baseName

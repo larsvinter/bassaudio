@@ -14,16 +14,16 @@ function setWrapFun(bass) {
       if (flagType[flagMessage] === code) return flagMessage;
   };
 
-
   bass.LoadAllPlugins = () => {
-	  let result = [];
-	for (let i in bass.addonsEncodings) {
-		result.push(bass.BASS_PluginLoad(
-			path.join(bass.basePath, bass.addonsEncodings[i])
-		), bass.addonsEncodings[i]);
-	}
-	return result;
-};
+    let result = [];
+    for (let i in bass.addonsEncodings) {
+      result.push(
+        bass.BASS_PluginLoad(path.join(bass.basePath, bass.addonsEncodings[i])),
+        bass.addonsEncodings[i]
+      );
+    }
+    return result;
+  };
 
   bass.EnableAllAvailable = (value) => {
     for (let i in bass.enableFuns) bass[bass.enableFuns[i]](value);
@@ -59,50 +59,50 @@ function setWrapFun(bass) {
       o.driver = info.driver;
       o.flags = info.flags;
       o.enabled =
-        (info.flags & this.BASS_DEVICEINFOflags.BASS_DEVICE_ENABLED) ==
-        this.BASS_DEVICEINFOflags.BASS_DEVICE_ENABLED;
+        (info.flags & this.BASS_flags.BASS_DEVICE_ENABLED) ==
+        this.BASS_flags.BASS_DEVICE_ENABLED;
       o.IsDefault =
-        (info.flags & this.BASS_DEVICEINFOflags.BASS_DEVICE_DEFAULT) ==
-        this.BASS_DEVICEINFOflags.BASS_DEVICE_DEFAULT;
+        (info.flags & this.BASS_flags.BASS_DEVICE_DEFAULT) ==
+        this.BASS_flags.BASS_DEVICE_DEFAULT;
       o.IsInitialized =
-        (info.flags & this.BASS_DEVICEINFOflags.BASS_DEVICE_INIT) ==
-        this.BASS_DEVICEINFOflags.BASS_DEVICE_INIT;
+        (info.flags & this.BASS_flags.BASS_DEVICE_INIT) ==
+        this.BASS_flags.BASS_DEVICE_INIT;
       o.typeDigital =
-        (info.flags & this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_DIGITAL) ==
-        this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_DIGITAL;
+        (info.flags & this.BASS_flags.BASS_DEVICE_TYPE_DIGITAL) ==
+        this.BASS_flags.BASS_DEVICE_TYPE_DIGITAL;
       o.typeDisplayPort =
-        (info.flags & this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_DISPLAYPORT) ==
-        this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_DISPLAYPORT;
+        (info.flags & this.BASS_flags.BASS_DEVICE_TYPE_DISPLAYPORT) ==
+        this.BASS_flags.BASS_DEVICE_TYPE_DISPLAYPORT;
       o.typeHandset =
-        (info.flags & this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_HANDSET) ==
-        this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_HANDSET;
+        (info.flags & this.BASS_flags.BASS_DEVICE_TYPE_HANDSET) ==
+        this.BASS_flags.BASS_DEVICE_TYPE_HANDSET;
       o.typeHdmi =
-        (info.flags & this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_HDMI) ==
-        this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_HDMI;
+        (info.flags & this.BASS_flags.BASS_DEVICE_TYPE_HDMI) ==
+        this.BASS_flags.BASS_DEVICE_TYPE_HDMI;
       o.typeHeadPhones =
-        (info.flags & this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_HEADPHONES) ==
-        this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_HEADPHONES;
+        (info.flags & this.BASS_flags.BASS_DEVICE_TYPE_HEADPHONES) ==
+        this.BASS_flags.BASS_DEVICE_TYPE_HEADPHONES;
       o.typeHeadSet =
-        (info.flags & this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_HEADSET) ==
-        this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_HEADSET;
+        (info.flags & this.BASS_flags.BASS_DEVICE_TYPE_HEADSET) ==
+        this.BASS_flags.BASS_DEVICE_TYPE_HEADSET;
       o.typeLine =
-        (info.flags & this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_LINE) ==
-        this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_LINE;
+        (info.flags & this.BASS_flags.BASS_DEVICE_TYPE_LINE) ==
+        this.BASS_flags.BASS_DEVICE_TYPE_LINE;
       o.typeMask =
-        (info.flags & this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_MASK) ==
-        this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_MASK;
+        (info.flags & this.BASS_flags.BASS_DEVICE_TYPE_MASK) ==
+        this.BASS_flags.BASS_DEVICE_TYPE_MASK;
       o.typeMicrophone =
-        (info.flags & this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_MICROPHONE) ==
-        this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_MICROPHONE;
+        (info.flags & this.BASS_flags.BASS_DEVICE_TYPE_MICROPHONE) ==
+        this.BASS_flags.BASS_DEVICE_TYPE_MICROPHONE;
       o.typeNetwork =
-        (info.flags & this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_NETWORK) ==
-        this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_NETWORK;
+        (info.flags & this.BASS_flags.BASS_DEVICE_TYPE_NETWORK) ==
+        this.BASS_flags.BASS_DEVICE_TYPE_NETWORK;
       o.typeSPDIF =
-        (info.flags & this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_SPDIF) ==
-        this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_SPDIF;
+        (info.flags & this.BASS_flags.BASS_DEVICE_TYPE_SPDIF) ==
+        this.BASS_flags.BASS_DEVICE_TYPE_SPDIF;
       o.typeSpeakers =
-        (info.flags & this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_SPEAKERS) ==
-        this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_SPEAKERS;
+        (info.flags & this.BASS_flags.BASS_DEVICE_TYPE_SPEAKERS) ==
+        this.BASS_flags.BASS_DEVICE_TYPE_SPEAKERS;
       arr.push(o);
       i++;
     }
@@ -127,50 +127,50 @@ function setWrapFun(bass) {
     o.driver = info.driver;
     o.flags = info.flags;
     o.enabled =
-      (info.flags & this.BASS_DEVICEINFOflags.BASS_DEVICE_ENABLED) ==
-      this.BASS_DEVICEINFOflags.BASS_DEVICE_ENABLED;
+      (info.flags & this.BASS_flags.BASS_DEVICE_ENABLED) ==
+      this.BASS_flags.BASS_DEVICE_ENABLED;
     o.IsDefault =
-      (info.flags & this.BASS_DEVICEINFOflags.BASS_DEVICE_DEFAULT) ==
-      this.BASS_DEVICEINFOflags.BASS_DEVICE_DEFAULT;
+      (info.flags & this.BASS_flags.BASS_DEVICE_DEFAULT) ==
+      this.BASS_flags.BASS_DEVICE_DEFAULT;
     o.IsInitialized =
-      (info.flags & this.BASS_DEVICEINFOflags.BASS_DEVICE_INIT) ==
-      this.BASS_DEVICEINFOflags.BASS_DEVICE_INIT;
+      (info.flags & this.BASS_flags.BASS_DEVICE_INIT) ==
+      this.BASS_flags.BASS_DEVICE_INIT;
     o.typeDigital =
-      (info.flags & this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_DIGITAL) ==
-      this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_DIGITAL;
+      (info.flags & this.BASS_flags.BASS_DEVICE_TYPE_DIGITAL) ==
+      this.BASS_flags.BASS_DEVICE_TYPE_DIGITAL;
     o.typeDisplayPort =
-      (info.flags & this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_DISPLAYPORT) ==
-      this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_DISPLAYPORT;
+      (info.flags & this.BASS_flags.BASS_DEVICE_TYPE_DISPLAYPORT) ==
+      this.BASS_flags.BASS_DEVICE_TYPE_DISPLAYPORT;
     o.typeHandset =
-      (info.flags & this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_HANDSET) ==
-      this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_HANDSET;
+      (info.flags & this.BASS_flags.BASS_DEVICE_TYPE_HANDSET) ==
+      this.BASS_flags.BASS_DEVICE_TYPE_HANDSET;
     o.typeHdmi =
-      (info.flags & this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_HDMI) ==
-      this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_HDMI;
+      (info.flags & this.BASS_flags.BASS_DEVICE_TYPE_HDMI) ==
+      this.BASS_flags.BASS_DEVICE_TYPE_HDMI;
     o.typeHeadPhones =
-      (info.flags & this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_HEADPHONES) ==
-      this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_HEADPHONES;
+      (info.flags & this.BASS_flags.BASS_DEVICE_TYPE_HEADPHONES) ==
+      this.BASS_flags.BASS_DEVICE_TYPE_HEADPHONES;
     o.typeHeadSet =
-      (info.flags & this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_HEADSET) ==
-      this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_HEADSET;
+      (info.flags & this.BASS_flags.BASS_DEVICE_TYPE_HEADSET) ==
+      this.BASS_flags.BASS_DEVICE_TYPE_HEADSET;
     o.typeLine =
-      (info.flags & this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_LINE) ==
-      this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_LINE;
+      (info.flags & this.BASS_flags.BASS_DEVICE_TYPE_LINE) ==
+      this.BASS_flags.BASS_DEVICE_TYPE_LINE;
     o.typeMask =
-      (info.flags & this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_MASK) ==
-      this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_MASK;
+      (info.flags & this.BASS_flags.BASS_DEVICE_TYPE_MASK) ==
+      this.BASS_flags.BASS_DEVICE_TYPE_MASK;
     o.typeMicrophone =
-      (info.flags & this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_MICROPHONE) ==
-      this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_MICROPHONE;
+      (info.flags & this.BASS_flags.BASS_DEVICE_TYPE_MICROPHONE) ==
+      this.BASS_flags.BASS_DEVICE_TYPE_MICROPHONE;
     o.typeNetwork =
-      (info.flags & this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_NETWORK) ==
-      this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_NETWORK;
+      (info.flags & this.BASS_flags.BASS_DEVICE_TYPE_NETWORK) ==
+      this.BASS_flags.BASS_DEVICE_TYPE_NETWORK;
     o.typeSPDIF =
-      (info.flags & this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_SPDIF) ==
-      this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_SPDIF;
+      (info.flags & this.BASS_flags.BASS_DEVICE_TYPE_SPDIF) ==
+      this.BASS_flags.BASS_DEVICE_TYPE_SPDIF;
     o.typeSpeakers =
-      (info.flags & this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_SPEAKERS) ==
-      this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_SPEAKERS;
+      (info.flags & this.BASS_flags.BASS_DEVICE_TYPE_SPEAKERS) ==
+      this.BASS_flags.BASS_DEVICE_TYPE_SPEAKERS;
 
     return o;
   };
@@ -370,9 +370,9 @@ function setWrapFun(bass) {
     var i = 0;
     while (this.BASS_RecordGetDeviceInfo(i, info.ref())) {
       if (
-        info.flags & this.BASS_DEVICEINFOflags.BASS_DEVICE_ENABLED &&
-        (info.flags & this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_MASK) ==
-          this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_MICROPHONE
+        info.flags & this.BASS_flags.BASS_DEVICE_ENABLED &&
+        (info.flags & this.BASS_flags.BASS_DEVICE_TYPE_MASK) ==
+          this.BASS_flags.BASS_DEVICE_TYPE_MICROPHONE
       ) {
         // micdev = i;
         var o = new Object();
@@ -382,53 +382,50 @@ function setWrapFun(bass) {
         o.driver = info.driver;
         o.flags = info.flags;
         o.enabled =
-          (info.flags & this.BASS_DEVICEINFOflags.BASS_DEVICE_ENABLED) ==
-          this.BASS_DEVICEINFOflags.BASS_DEVICE_ENABLED;
+          (info.flags & this.BASS_flags.BASS_DEVICE_ENABLED) ==
+          this.BASS_flags.BASS_DEVICE_ENABLED;
         o.IsDefault =
-          (info.flags & this.BASS_DEVICEINFOflags.BASS_DEVICE_DEFAULT) ==
-          this.BASS_DEVICEINFOflags.BASS_DEVICE_DEFAULT;
+          (info.flags & this.BASS_flags.BASS_DEVICE_DEFAULT) ==
+          this.BASS_flags.BASS_DEVICE_DEFAULT;
         o.IsInitialized =
-          (info.flags & this.BASS_DEVICEINFOflags.BASS_DEVICE_INIT) ==
-          this.BASS_DEVICEINFOflags.BASS_DEVICE_INIT;
+          (info.flags & this.BASS_flags.BASS_DEVICE_INIT) ==
+          this.BASS_flags.BASS_DEVICE_INIT;
         o.typeDigital =
-          (info.flags & this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_DIGITAL) ==
-          this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_DIGITAL;
+          (info.flags & this.BASS_flags.BASS_DEVICE_TYPE_DIGITAL) ==
+          this.BASS_flags.BASS_DEVICE_TYPE_DIGITAL;
         o.typeDisplayPort =
-          (info.flags &
-            this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_DISPLAYPORT) ==
-          this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_DISPLAYPORT;
+          (info.flags & this.BASS_flags.BASS_DEVICE_TYPE_DISPLAYPORT) ==
+          this.BASS_flags.BASS_DEVICE_TYPE_DISPLAYPORT;
         o.typeHandset =
-          (info.flags & this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_HANDSET) ==
-          this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_HANDSET;
+          (info.flags & this.BASS_flags.BASS_DEVICE_TYPE_HANDSET) ==
+          this.BASS_flags.BASS_DEVICE_TYPE_HANDSET;
         o.typeHdmi =
-          (info.flags & this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_HDMI) ==
-          this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_HDMI;
+          (info.flags & this.BASS_flags.BASS_DEVICE_TYPE_HDMI) ==
+          this.BASS_flags.BASS_DEVICE_TYPE_HDMI;
         o.typeHeadPhones =
-          (info.flags &
-            this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_HEADPHONES) ==
-          this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_HEADPHONES;
+          (info.flags & this.BASS_flags.BASS_DEVICE_TYPE_HEADPHONES) ==
+          this.BASS_flags.BASS_DEVICE_TYPE_HEADPHONES;
         o.typeHeadSet =
-          (info.flags & this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_HEADSET) ==
-          this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_HEADSET;
+          (info.flags & this.BASS_flags.BASS_DEVICE_TYPE_HEADSET) ==
+          this.BASS_flags.BASS_DEVICE_TYPE_HEADSET;
         o.typeLine =
-          (info.flags & this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_LINE) ==
-          this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_LINE;
+          (info.flags & this.BASS_flags.BASS_DEVICE_TYPE_LINE) ==
+          this.BASS_flags.BASS_DEVICE_TYPE_LINE;
         o.typeMask =
-          (info.flags & this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_MASK) ==
-          this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_MASK;
+          (info.flags & this.BASS_flags.BASS_DEVICE_TYPE_MASK) ==
+          this.BASS_flags.BASS_DEVICE_TYPE_MASK;
         o.typeMicrophone =
-          (info.flags &
-            this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_MICROPHONE) ==
-          this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_MICROPHONE;
+          (info.flags & this.BASS_flags.BASS_DEVICE_TYPE_MICROPHONE) ==
+          this.BASS_flags.BASS_DEVICE_TYPE_MICROPHONE;
         o.typeNetwork =
-          (info.flags & this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_NETWORK) ==
-          this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_NETWORK;
+          (info.flags & this.BASS_flags.BASS_DEVICE_TYPE_NETWORK) ==
+          this.BASS_flags.BASS_DEVICE_TYPE_NETWORK;
         o.typeSPDIF =
-          (info.flags & this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_SPDIF) ==
-          this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_SPDIF;
+          (info.flags & this.BASS_flags.BASS_DEVICE_TYPE_SPDIF) ==
+          this.BASS_flags.BASS_DEVICE_TYPE_SPDIF;
         o.typeSpeakers =
-          (info.flags & this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_SPEAKERS) ==
-          this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_SPEAKERS;
+          (info.flags & this.BASS_flags.BASS_DEVICE_TYPE_SPEAKERS) ==
+          this.BASS_flags.BASS_DEVICE_TYPE_SPEAKERS;
 
         arr.push(o);
         // break;
@@ -457,50 +454,50 @@ function setWrapFun(bass) {
     o.driver = info.driver;
     o.flags = info.flags;
     o.enabled =
-      (info.flags & this.BASS_DEVICEINFOflags.BASS_DEVICE_ENABLED) ==
-      this.BASS_DEVICEINFOflags.BASS_DEVICE_ENABLED;
+      (info.flags & this.BASS_flags.BASS_DEVICE_ENABLED) ==
+      this.BASS_flags.BASS_DEVICE_ENABLED;
     o.IsDefault =
-      (info.flags & this.BASS_DEVICEINFOflags.BASS_DEVICE_DEFAULT) ==
-      this.BASS_DEVICEINFOflags.BASS_DEVICE_DEFAULT;
+      (info.flags & this.BASS_flags.BASS_DEVICE_DEFAULT) ==
+      this.BASS_flags.BASS_DEVICE_DEFAULT;
     o.IsInitialized =
-      (info.flags & this.BASS_DEVICEINFOflags.BASS_DEVICE_INIT) ==
-      this.BASS_DEVICEINFOflags.BASS_DEVICE_INIT;
+      (info.flags & this.BASS_flags.BASS_DEVICE_INIT) ==
+      this.BASS_flags.BASS_DEVICE_INIT;
     o.typeDigital =
-      (info.flags & this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_DIGITAL) ==
-      this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_DIGITAL;
+      (info.flags & this.BASS_flags.BASS_DEVICE_TYPE_DIGITAL) ==
+      this.BASS_flags.BASS_DEVICE_TYPE_DIGITAL;
     o.typeDisplayPort =
-      (info.flags & this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_DISPLAYPORT) ==
-      this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_DISPLAYPORT;
+      (info.flags & this.BASS_flags.BASS_DEVICE_TYPE_DISPLAYPORT) ==
+      this.BASS_flags.BASS_DEVICE_TYPE_DISPLAYPORT;
     o.typeHandset =
-      (info.flags & this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_HANDSET) ==
-      this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_HANDSET;
+      (info.flags & this.BASS_flags.BASS_DEVICE_TYPE_HANDSET) ==
+      this.BASS_flags.BASS_DEVICE_TYPE_HANDSET;
     o.typeHdmi =
-      (info.flags & this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_HDMI) ==
-      this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_HDMI;
+      (info.flags & this.BASS_flags.BASS_DEVICE_TYPE_HDMI) ==
+      this.BASS_flags.BASS_DEVICE_TYPE_HDMI;
     o.typeHeadPhones =
-      (info.flags & this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_HEADPHONES) ==
-      this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_HEADPHONES;
+      (info.flags & this.BASS_flags.BASS_DEVICE_TYPE_HEADPHONES) ==
+      this.BASS_flags.BASS_DEVICE_TYPE_HEADPHONES;
     o.typeHeadSet =
-      (info.flags & this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_HEADSET) ==
-      this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_HEADSET;
+      (info.flags & this.BASS_flags.BASS_DEVICE_TYPE_HEADSET) ==
+      this.BASS_flags.BASS_DEVICE_TYPE_HEADSET;
     o.typeLine =
-      (info.flags & this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_LINE) ==
-      this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_LINE;
+      (info.flags & this.BASS_flags.BASS_DEVICE_TYPE_LINE) ==
+      this.BASS_flags.BASS_DEVICE_TYPE_LINE;
     o.typeMask =
-      (info.flags & this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_MASK) ==
-      this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_MASK;
+      (info.flags & this.BASS_flags.BASS_DEVICE_TYPE_MASK) ==
+      this.BASS_flags.BASS_DEVICE_TYPE_MASK;
     o.typeMicrophone =
-      (info.flags & this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_MICROPHONE) ==
-      this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_MICROPHONE;
+      (info.flags & this.BASS_flags.BASS_DEVICE_TYPE_MICROPHONE) ==
+      this.BASS_flags.BASS_DEVICE_TYPE_MICROPHONE;
     o.typeNetwork =
-      (info.flags & this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_NETWORK) ==
-      this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_NETWORK;
+      (info.flags & this.BASS_flags.BASS_DEVICE_TYPE_NETWORK) ==
+      this.BASS_flags.BASS_DEVICE_TYPE_NETWORK;
     o.typeSPDIF =
-      (info.flags & this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_SPDIF) ==
-      this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_SPDIF;
+      (info.flags & this.BASS_flags.BASS_DEVICE_TYPE_SPDIF) ==
+      this.BASS_flags.BASS_DEVICE_TYPE_SPDIF;
     o.typeSpeakers =
-      (info.flags & this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_SPEAKERS) ==
-      this.BASS_DEVICEINFOflags.BASS_DEVICE_TYPE_SPEAKERS;
+      (info.flags & this.BASS_flags.BASS_DEVICE_TYPE_SPEAKERS) ==
+      this.BASS_flags.BASS_DEVICE_TYPE_SPEAKERS;
 
     return o;
   };

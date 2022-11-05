@@ -8,12 +8,12 @@ var options = [
   {
     files: `${FFI_LIB_FOLDER}${path.sep}callback.js`,
     from: /\s+return callback/,
-    to:
-      "Object.defineProperty(func, '_func', {value:callback});return callback",
+    to: "Object.defineProperty(func, '_func', {value:callback});return callback",
   },
 ];
 
 module.exports = (silent) => {
+  silent = true;
   options.forEach((o) => {
     try {
       var changedFiles = replace.sync(o);

@@ -22,9 +22,20 @@ const getPlatformDependencies = require("./getPlatformDependencies");
 
 // Read in the libs from this directory and import them
 var setters = [];
-fs.readdirSync(path.join(__dirname, "setters")).forEach(function (file) {
+fs.readdirSync(path.join(__dirname, "setters/bass")).forEach(function (file) {
   if (file.indexOf(".js") > -1)
-    setters.push(require("./" + path.join("setters", file)));
+    setters.push(require("./" + path.join("setters/bass", file)));
+});
+
+["bassmix", "bassenc"].forEach((plugin) => {
+  fs.readdirSync(path.join(__dirname, `setters/plugins/${plugin}`)).forEach(
+    function (file) {
+      if (file.indexOf(".js") > -1)
+        setters.push(
+          require("./" + path.join(`setters/plugins/${plugin}`, file))
+        );
+    }
+  );
 });
 
 var libDeclarations = [];

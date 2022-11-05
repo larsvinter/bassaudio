@@ -3,9 +3,7 @@
  */
 
 const path = require("path");
-
-const setStructs = require("./setters/setStructs");
-const setCallbacks = require("./setters/setCallbacks");
+const fs = require("fs");
 
 const wrapper_errors = {
   libNotEnabled: (lib) => `You must enable ${lib} before using this function`,
@@ -21,14 +19,32 @@ const argTypeValuesDefault = {
   bool: false,
 };
 
+const setters = {};
+fs.readdirSync(path.join(__dirname, "setters/bass")).forEach(function (file) {
+  if (file.indexOf(".js") > -1)
+    setters[file] = require("./" + path.join("setters/bass", file));
+});
+
+["bassmix", "bassenc"].forEach((plugin) => {
+  fs.readdirSync(path.join(__dirname, `setters/plugins/${plugin}`)).forEach(
+    function (file) {
+      if (file.indexOf(".js") > -1)
+        setters[`${plugin}-${file}`] = require("./" +
+          path.join(`setters/plugins/${plugin}`, file));
+    }
+  );
+});
+
+console.log(setters);
 var structs = {};
-setStructs(structs);
+setters["setStructs.js"](structs);
+
 for (let prop in structs) {
   argTypeValuesDefault[prop] = structs[prop].generateNewObject().ref();
 }
 const argCallbackBuilders = {};
 var callbacks = {};
-setCallbacks(callbacks);
+setters["setCallbacks.js"](callbacks);
 for (let prop in callbacks) {
   argCallbackBuilders[prop] = callbacks[prop];
 }
